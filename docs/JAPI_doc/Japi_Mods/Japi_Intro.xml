@@ -42,4 +42,27 @@
     <para>RDF data ingestion tool to HPCC. Based on Apache Jena and is
     dependent on wsclient.</para>
   </sect2>
+
+  <sect2>
+    <title>Common Clients </title>
+
+    <para>Clients using the HPCC Systems for Java (HPCC4J) libraries may need
+    to import the public certificate used to configure the SSL/TLS for the
+    cluster into the local Java certificate keystore. One way this can be
+    accomplished is by using the keytool packaged with Java installations;
+    Consult the keytool documentation not the HPCC Systems® Administrator's
+    Guide System Configuration and Management for usage on importing
+    certificates.</para>
+
+    <para>The following is an example of importing a certificate onto a
+    machine intended to run the HPCC Systems cluster:</para>
+
+    <programlisting>sudo keytool -import -trustcacerts -cacerts -storepass changeit -noprompt -alias \ 
+hpccsystems -file /home/hpcc/certificate/certificate.pem
+</programlisting>
+
+    <para>The above is only an example, this may not even be necessary for
+    your specific installation. Consult the keytool documentation for
+    specifics on deploying in your environment.</para>
+  </sect2>
 </sect1>
